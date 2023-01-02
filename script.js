@@ -34,14 +34,20 @@ const renderCalendar = () => {
     for (let i = 1; i <= lastdateofmonth; i++) { 
         let isToday = i === date.getDate() && currentmonth === new Date().getMonth() 
                      && currentyear === new Date().getFullYear() ? "active" : "";
-        li += `<li class="${isToday}">${i}</li>`;
+                   
+                    var d=currentyear+'/'+parseInt(currentmonth+1)+'/'+i+' GMT';
+                    let date2 = new Date(d);
+                    let date3=date2.toDateString()
+
+        li += `<li class="${isToday}" id="${date3}"onclick="fun(this.id)">${i}</li>`;
     }
 
     for (let i = lastdayofmonth; i < 6; i++) { 
-        li += `<li class="inactive">${i - lastdayofmonth + 1}</li>`
+        li += `<li class="inactive" >${i - lastdayofmonth + 1}</li>`
     }
     currentdate.innerText = `${months[currentmonth]} ${currentyear}`; 
     days.innerHTML = li;
+   
     
 }
 
@@ -58,6 +64,19 @@ prevnext.forEach(icon => {
         } else {
             date = new Date(); 
         }
+      
         renderCalendar(); 
     });
 });
+function fun(date2)
+{
+    document.getElementById('footercontent').innerHTML=date2;
+    
+  
+}
+function fun(date3)
+{
+    document.getElementById('footercontent1').innerHTML=date3;
+    
+  
+}
