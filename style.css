@@ -140,14 +140,19 @@ width: calc(100% / 7);
 .footer {
     padding: 18px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: first baseline;
     align-items: center;
     color: rgb(41, 63, 138);
+}
+
+.footer .cf{
+    padding-right: 150px;
+    color: #aaa;
 }
 .calendar .days .event{
     position: relative;
 }
-.calendar .days .event::{
+/* .calendar .days .event::{
     content: "";
     position: absolute;
     bottom: 10%;
@@ -157,7 +162,7 @@ width: calc(100% / 7);
     border-radius: 30px;
     transform: translateX(-50%);
     background-color: #80bfff;
-}
+} */
 .calendar .event:hover::after{
     background-color: #f2f2f2;
 }
